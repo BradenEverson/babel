@@ -2,6 +2,7 @@
 name = "babel"
 version = "0.1.0"
 authors = ["BradenEverson"]
+description = "General purpose Natural Language Processing crate for trimming, tokenization and lemmatization"
 edition = "2021"
 license = "MIT"
 
