@@ -3,7 +3,7 @@ use std::fs::read_to_string;
 
 use crate::core::languages::lang::Language;
 
-pub fn collect_lem(lang: Language) -> HashMap<String, String> {
+pub(crate) fn collect_lem(lang: &Language) -> HashMap<String, String> {
     let mut res: HashMap<String, String> = HashMap::new();
 
     let file_path = format!("src/data/lemmatize/{}.txt", lang.get_stem());
