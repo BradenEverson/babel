@@ -2,6 +2,7 @@ use crate::core::languages::lang::Language;
 
 use super::collect::collect_lem;
 
+///Takes in a sentence and trims/parses every word into a lemmatized format
 pub fn lemmatize_sentence(lang: &Language, words: String) -> Vec<String> {
 
     let lemm_map = collect_lem(&lang);
@@ -15,4 +16,23 @@ pub fn lemmatize_sentence(lang: &Language, words: String) -> Vec<String> {
         });
     }
     res
+}
+
+#[cfg(test)]
+mod test{
+    use super::lemmatize_sentence;
+    use super::Language;
+
+    #[test]
+    fn test_be() {
+        let res = lemmatize_sentence(&Language::English, "am was is are were".to_string());
+        for i in 0..res.len() {
+            assert_eq!(res[i], "be".to_string());
+        }
+    }
+    #[test]
+    fn test_whitespace(){
+        let res = lemmatize_sentence(&Language::English, "            am     ".to_string());
+        assert_eq!(res[0], "be".to_string());
+    }
 }
