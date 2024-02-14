@@ -35,4 +35,9 @@ mod test{
         let res = lemmatize_sentence(&Language::English, "            am     ".to_string());
         assert_eq!(res[0], "be".to_string());
     }
+    #[test]
+    fn test_null(){
+        let res = lemmatize_sentence(&Language::English, "".to_string());
+        assert_eq!(res[0], "");
+    }
 }
